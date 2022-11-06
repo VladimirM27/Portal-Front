@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import 'normalize.css';
+import './styles/index.scss';
+import ModelAuthorization from "./component/ModelAuthorization";
+import StoragePage from "./component/StoragePage";
 
 function App() {
+  const admin = {login:'admin', password:'admin'};
+  const [authorizat,setAuthorize] = useState(false);
+  const isAuthorizetion = (e) => {
+    setAuthorize(!authorizat);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {authorizat ? 
+        <StoragePage isAuthorizetion={isAuthorizetion}/>  : 
+        <ModelAuthorization isAuthorizetion={isAuthorizetion} admin={admin}/>}
     </div>
   );
 }

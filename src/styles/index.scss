@@ -1,0 +1,454 @@
+@import 'variables.scss';
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*AUTHORIZATION PAGE*/
+
+.outer-wrapper {
+  background: #FDF8CB;
+  width: 99vw;
+  height: 100vh;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-authorization {
+  width: 1000px;
+  height: 655px;
+  background: $prm-main-bg-color;
+  border-radius: 25px;
+  font-family: $prm-fonts;
+}
+.authorization-form {
+  padding: 33px 0;
+  width: 640px;
+  height: 95%;
+  margin: 0 auto;
+}
+.authorization-form_title {
+  color:$prm-main-text-color;
+  text-align: center;
+  line-height: 78px;
+  font-size: 68px;
+  font-weight: 300;
+  margin-bottom: 80px;
+}
+::placeholder,.authorization-form_btn {
+  font-size: 66px;
+  font-weight: 300;
+}
+
+.authorization-form_input input {
+  width: 95%;
+  height: 85px;
+  border-radius: 40px;
+  border: none;
+  margin-bottom: 73px;
+  padding-left: 30px;
+  padding-top:10px;
+  font-size: 40px;
+  box-shadow: 0 3px 6px grey;
+  transition: .5s;
+}
+.authorization-form_input input:hover {
+  box-shadow: 0 3px 20px green;
+}
+.authorization-form_input input:focus {
+  outline: none;
+}
+::placeholder {
+  padding: 60px 0px;
+  color: $second-main-color;
+}
+.authorization-form_btn {
+  width: 100%;
+  height: 90px;
+  font-size: 64px;
+  color:$second-main-text-color;
+  background: $btn-authorization-bg-color;
+  border:none;
+  text-align: center;
+  border-radius: 40px;
+  transition: .5s;
+}
+.authorization-form_btn:hover {
+  background: #12c445;
+  box-shadow: 0 3px 20px green;
+  color:lightgrey;
+}
+
+/*STORAGE PAGE*/
+
+.main {
+	display: flex;
+}
+.nav-bar {
+	width:350px;
+	height: 100vh;
+	background: $second-main-bg-color;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nav-bar_list {
+	list-style: none;
+}
+.item-list {
+	display: flex;
+	align-items: center;
+	width: 216px;
+	height: 20px;
+	font-size: 40px;
+	font-family: $main-fonts;
+	background: $btn-prm-bg-color;
+	border-radius: 10px;
+	padding: 20px 10px;
+	margin: 20px 0;
+	transition: .5s;
+}
+.item-list_text {
+	text-align: center;
+	width: 200px;
+}
+.item-list:hover:not(.selected) {
+	background: $prm-main-color;
+}
+.item-list:last-child:hover {
+	background: red;
+}
+.item-list_link {
+	text-decoration: none;
+	color:$prm-main-text-color;
+}
+.selected {
+	background: $btn-selected-color;
+}
+.storage {
+	box-sizing:border-box;
+	width: 1920px;
+	height: 100vh;
+	padding:25px;
+}
+.storage-title {
+	font-size: 96px;
+	font-family: $main-fonts;
+	font-weight: 300;
+}
+.storage-mod {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+.storage-btn {
+	height: 61px;
+	font-size: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 15px;
+	border-radius: 30px;
+	margin-right: 10px;
+	border: none;
+	transition: .5s;
+}
+.storage-btn_title {
+	padding: 0 15px;
+	font-family: $main-fonts;
+}
+.add_btn {
+	background: #AAFF9C;
+}
+.add_btn:hover {
+	background: #12c445;
+  box-shadow: 0 3px 20px green;
+}
+.filter_btn {
+	background: #AFA6E7;
+}
+.filter_btn:hover {
+	background: rgb(144, 131, 230);
+	box-shadow: 0 3px 20px rgb(144, 131, 230);
+}
+.delete_btn {
+	background: #F78E8E;
+}
+.delete_btn:hover {
+	background: #f55858;
+	box-shadow: 0 3px 20px #f55858;
+}
+.storage-table {
+	margin-top: 20px;
+	width: 1500px;
+	min-height:auto;
+	max-height:750px;
+	overflow: auto;
+	background: $second-main-text-color;
+	border: 2px solid black;
+	text-align: left;
+	font-family: $prm-fonts;
+}
+.storage-table-header {
+	display: flex;
+	justify-content: space-around;
+}
+.storage-table-header span {
+	border: 1px solid #B9B9B9;
+	font-weight: 400;
+	padding: 10px;
+	flex-grow: 1;
+}
+.storage-table-body {
+	transition: 1s;
+}
+.ingredient-info {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.ingredient-info span {
+	padding: 10px 0 0  8px;
+	box-sizing: border-box;
+	border: 1px solid #B9B9B9;
+}
+.ingredient-info_name {
+	width: 176px;
+}
+.ingredient-info_type {
+	width: 165px;
+}
+.ingredient-info_vendor {
+	width: 185px;
+}
+.ingredient-info_capacity {
+	width: 199px;
+}
+.ingredient-info_amount {
+	width: 190px;
+}
+.ingredient-info_cost {
+	width: 164px;
+}
+.ingredient-info_exp {
+	width: 249px;
+}
+.ingredient-info_state {
+	box-sizing: border-box;
+	width: 178px;
+	display: flex;
+	justify-content: center;
+	border: 1px solid #B9B9B9;
+}
+.ingredient-status {
+	width: 40%;
+	margin: 3px 0;
+	background: #12c445;
+	padding: 6px;
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 30px;
+}
+.displayClear {
+	display: none;
+}
+.ingredient-detail-content {
+	height: 200px;
+	padding:5px 15px;
+	display: flex;
+	border: 1px solid black;
+}
+.ingredient-detail-PFC {
+	width: 180px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.PFC-list {
+	margin-top: 20px;
+	list-style: none;
+	font-size: 16px;
+	flex-grow: 1;
+	align-self:flex-start;
+}
+.PFC-list-item {
+	margin-bottom: 15px;
+}
+.ingredient-detail-note {
+	width: 370px;
+	height: 100%;
+	padding: 8px 0;
+}
+.ingredient-detail-note_title {
+	text-align: center;
+	font-weight: 400;
+}
+.ingredient-detail-note_area {
+	margin-top: 7px;
+	box-sizing: border-box;
+	width: 360px;
+	height: 150px;
+	border-radius: 10px;
+	resize: none;
+	padding: 10px;
+	font-size: 16px;
+	border:1px solid black;
+}
+.ingredient-detail-btn {
+	margin: 0 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 150px;
+}
+.ingredient-btn {
+	font-size: 16px;
+	padding: 4px 30px;
+	font-weight: 400;
+	box-sizing: border-box;
+	width: 232px;
+	height: 32px;
+	background:#EAFFC7;
+	border-radius: 7px;
+	margin-bottom: 10px;
+}
+.ingredient-detail-supply {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 500px;
+	height: 190px;
+}
+.supple-table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid white;
+	height: 50px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.supple-table caption,.supple-table thead {
+	font-size: 16px;
+	font-weight: 400;
+}
+.supple-table th,.supple-table td  {
+	border: 1px solid white;
+	padding: 4px;
+}
+.supple-btn {
+	border: none;
+	font-size: 20px;
+	height: 26px;
+}
+
+/*MODAL ADD WINDOW*/
+
+.modal {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	top:0;
+	left:0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: scale(0);
+	transition: .3s;
+	opacity: 0;
+	pointer-events: none;
+}
+.modal.active {
+	transform: scale(1);
+	pointer-events: all;
+	opacity: 1;
+}
+.modal-content {
+	padding: 20px;
+	border-radius: 15px;
+	background: $prm-main-bg-color;
+	transform: scale(.5);
+	transition: .4s all ;
+	display: flex;
+	justify-content: center;
+}
+.modal-content.active {
+	transform: scale(1);
+}
+.add-modal {
+	width: 956px;
+	height: 550px;
+}
+
+.add-form {
+	width: 850px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.form-input {
+	display: flex;
+	width: 900px;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: space-between;
+}
+.input-add {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	box-sizing: border-box;
+}
+.form-input .input-add input, .form-input_type {
+	width: 260px;
+	height: 46px;
+	margin: 0 10px 15px;
+	border: none;
+	background: #D9D9D9;
+	border-radius: 20px;
+}
+.form-input .input-add input, .form-input_type, .form-input_area {
+	padding-left: 10px;
+	font-size: 25px;
+	font-family: $prm-fonts;
+}
+.form-input_title {
+	font-size: 30px;
+	font-family: $prm-fonts;
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+.form-input_area {
+	width: 371px;
+	height: 204px;
+	border-radius: 20px;
+	background: #D9D9D9;
+	border: none;
+	resize: none;
+	margin-bottom:30px;
+}
+.form-note-btn {
+	width: 800px;
+	display: flex;
+	justify-content: space-between;
+}
+.form-note-btn button {
+	width: 343px;
+	font-size: 40px;
+	font-weight: 300;
+	border: 3px solid $second-main-bg-color;
+	border-radius: 15px;
+	background: 
+	#ABB8D4;
+	font-family: $prm-fonts;
+}
+.suple-modal {
+	width: 956px;
+	height: 170px;
+}
