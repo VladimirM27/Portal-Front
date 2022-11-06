@@ -8,6 +8,7 @@ const AddModalVIew = ({active,setActive}) => {
 			e.preventDefault();
 			alert('Item add');
 			setActive(false);
+			console.log(1);
 		}
     return (
       <div className={`modal ${active ? 'active' : ''}`}
