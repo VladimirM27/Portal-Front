@@ -4,11 +4,12 @@ import AddSupleModalView from "../component/AddSupleModalView";
 import IngredientTable from "../component/IngredientTable";
 import {Link, useNavigate} from "react-router-dom";
 import Menu from "../component/Menu";
+import OrdersTable from "../component/OrdersTable";
+import ModalOrder from "../component/ModalOrder";
 
 const OrdersPage = ({isAuthorizetion}) => {
 
     const [modalActive,setModalActive] = useState(false);
-    const [supleModelActive,setSupleModalActive] = useState(false);
     const navOrders = useNavigate();
 
     const exit =(e) => {
@@ -20,10 +21,8 @@ const OrdersPage = ({isAuthorizetion}) => {
     }
 
     return (
-        <div className='outer-wrapper main'>
+        <div className='outer-wrapper main' style={{position:'relative'}} onClick={() => setModalActive(false)}>
             <Menu exit={exit} isAuthorizetion={isAuthorizetion} tf={tf} indexActive={1}/>
-            <AddModalVIew active={modalActive} setActive={setModalActive}/>
-            <AddSupleModalView activeSuple={supleModelActive} setSupleModalActive={setSupleModalActive}/>
             <div className='storage'>
                 <h2 className="storage-title">Orders</h2>
                 <div className="storage-mod">
@@ -45,12 +44,11 @@ const OrdersPage = ({isAuthorizetion}) => {
                     </button>
                     <button
                         className='storage-btn add_btn'
-                        onClick={() => setModalActive(true)}
                     >
                         <span className='storage-btn_title'>Report</span>
                     </button>
                 </div>
-                {/*<OrdersTable setSupleModalActive={setSupleModalActive}/>*/}
+                <OrdersTable/>
             </div>
         </div>
     );

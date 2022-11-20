@@ -2,13 +2,11 @@ import React,{useState} from 'react';
 import AddModalVIew from '../component/AddModalVIew';
 import AddSupleModalView from '../component/AddSupleModalView';
 import IngredientTable from '../component/IngredientTable';
-import {Link, useNavigate} from "react-router-dom";
 import Menu from "../component/Menu";
 
 const StoragePage = ({isAuthorizetion}) => {
 	const [modalActive,setModalActive] = useState(false);
 	const [supleModelActive,setSupleModalActive] = useState(false);
-	const navOrders = useNavigate();
 
 	const exit =(e) => {
     e.preventDefault();
