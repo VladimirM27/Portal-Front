@@ -236,6 +236,7 @@
 .ingredient-info_exp {
 	width: 249px;
 }
+
 .ingredient-info_state {
 	box-sizing: border-box;
 	width: 178px;
@@ -251,6 +252,58 @@
 	text-align: center;
 	border: 2px solid black;
 	border-radius: 30px;
+}
+
+
+.order-profile{
+	width: 299px;
+}
+.order-cost{
+	width: 284px;
+}
+.order-timedate{
+	width: 331px;
+}
+.order-time{
+	width: 287px;
+}
+.order-info_state {
+	box-sizing: border-box;
+	width: 299px;
+	display: flex;
+	justify-content: center;
+	border: 1px solid #B9B9B9;
+}
+.order-status {
+	width: 40%;
+	margin: 3px 0;
+	background: #12c445;
+	padding: 6px;
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 30px;
+}
+
+
+.product-name{
+	width: 264px;
+
+}
+.product-capacity{
+	width: 312px;
+
+}
+.product-amount{
+	width: 293px;
+
+}
+.product-cost1{
+	width: 320px;
+
+}
+.product-cost{
+	width: 237px;
+
 }
 .displayClear {
 	display: none;
@@ -405,6 +458,9 @@
 	text-align: center;
 	box-sizing: border-box;
 }
+.width{
+	width: 800px;
+}
 .form-input .input-add input, .form-input_type {
 	width: 260px;
 	height: 46px;
@@ -433,6 +489,16 @@
 	resize: none;
 	margin-bottom:30px;
 }
+
+.form-input_area-order {
+	width: 850px;
+	height: 204px;
+	border-radius: 20px;
+	background: #D9D9D9;
+	border: none;
+	resize: none;
+	margin-bottom:30px;
+}
 .form-note-btn {
 	width: 800px;
 	display: flex;
@@ -451,4 +517,65 @@
 .suple-modal {
 	width: 956px;
 	height: 170px;
+}
+
+.modal-order-wrapper{
+	opacity: 1;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 1s;
+	position: absolute;
+
+}
+.modal-order-wrapper-hidden{
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: 1s;
+	position: absolute;
+}
+.modal__content{
+	padding: 20px;
+	border-radius: 12px;
+	background-color: rgba(252, 248, 213, 1);
+	width: 50%;
+	transform: scale(0.5);
+	transition: 0.4s all;
+}
+.modal__content.active{
+	transform: scale(1);
+}
+
+.order-form {
+	width: 850px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.products-table {
+	margin-top: 20px;
+	width: 700px;
+	min-height:auto;
+	max-height:350px;
+	overflow: auto;
+	background: $second-main-text-color;
+	border: 2px solid black;
+	text-align: left;
+	font-family: $prm-fonts;
+	overflow: scroll!important;
 }
