@@ -1,30 +1,46 @@
-import React,{useState} from "react";
-import 'normalize.css';
-import './styles/index.scss';
-import ModelAuthorization from "./component/ModelAuthorization";
-import StoragePage from "./pages/StoragePage";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import OrdersPage from "./pages/OrdersPage";
-
+import './styles/index.scss'
+import React, {useState} from 'react'
+import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
+import {getCurrentUser} from './http'
+import {ACCESS_TOKEN} from './http'
+import LoginPage from "./pages/LoginPage";
+import StorePage from './pages/StorePage'
+import OrdersPage from './pages/OrdersPage'
 function App() {
-  const admin = {login:'admin', password:'admin'};
-  const [authorizat,setAuthorize] = useState(false);
-  const isAuthorizetion = (e) => {
-    setAuthorize(!authorizat);
+  const [userState,setUserState] = useState({
+    authenticated: false,
+    currentUser: null,
+    });
+
+  const loadCurrentlyLoggedInUser = () => {
+    getCurrentUser()
+    .then(response => {
+      setUserState({
+        authenticated: false,
+        currentUser: null,
+        loading: true});
+    }).catch(error => {
+      setUserState({...userState,loading:false})
+    })
+  }
+  const handleLogout = () => {
+    localStorage.removeItem(ACCESS_TOKEN);
+    setUserState({userState,authenticated: false,
+      currentUser: null});
+    alert("You're safely logged out!");
+  }
+  const isAuthorizetion =() => {
+    setUserState({...userState,authenticated:!userState.authenticated});
   }
   return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={(<div className="App">
-            {authorizat ?
-                <StoragePage isAuthorizetion={isAuthorizetion}/>  :
-                <ModelAuthorization isAuthorizetion={isAuthorizetion} admin={admin}/>}
-          </div>)}/>
-          <Route path="/orders" element={<OrdersPage/>}/>
-          <Route path="/storage" element={<StoragePage/>}/>
-        </Routes>
-      </BrowserRouter>
-
+    <BrowserRouter>
+      <Routes>
+        <Route index path='/login' element={<LoginPage authenticated={userState.authenticated} isAuthorizetion={isAuthorizetion}/>}></Route>
+        <Route path='/store' element={<StorePage authenticated={userState.authenticated} isAuthorizetion={isAuthorizetion}/>}/>
+        <Route path="/orders" element={<OrdersPage/>}/>
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

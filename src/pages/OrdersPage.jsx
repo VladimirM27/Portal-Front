@@ -1,28 +1,18 @@
-import React, {useState} from 'react';
-import AddModalVIew from "../component/AddModalVIew";
-import AddSupleModalView from "../component/AddSupleModalView";
-import IngredientTable from "../component/IngredientTable";
+import React,{useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import Menu from "../component/Menu";
-import OrdersTable from "../component/OrdersTable";
-import ModalOrder from "../component/ModalOrder";
-
+import AddModalVIew from '../components/AddModalVIew';
+import Menu from '../components/Menu';
+import ModalOrder from '../components/ModalOrder';
+import OrdersTable from '../components/OrdersTable';
 const OrdersPage = ({isAuthorizetion}) => {
 
     const [modalActive,setModalActive] = useState(false);
-    const navOrders = useNavigate();
-
-    const exit =(e) => {
-        e.preventDefault();
-        isAuthorizetion();
-    }
     const tf =(e) => {
         e.preventDefault();
     }
-
     return (
-        <div className='outer-wrapper main' style={{position:'relative'}} onClick={() => setModalActive(false)}>
-            <Menu exit={exit} isAuthorizetion={isAuthorizetion} tf={tf} indexActive={1}/>
+        <div className='outer-wrapper main'>
+            <Menu isAuthorizetion={isAuthorizetion} tf={tf} indexActive={1}/>
             <div className='storage'>
                 <h2 className="storage-title">Orders</h2>
                 <div className="storage-mod">
@@ -48,10 +38,10 @@ const OrdersPage = ({isAuthorizetion}) => {
                         <span className='storage-btn_title'>Report</span>
                     </button>
                 </div>
-                <OrdersTable/>
+                <OrdersTable active={modalActive} setActive={setModalActive}/>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default OrdersPage;
+export default OrdersPage
