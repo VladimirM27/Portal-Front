@@ -557,3 +557,19 @@
 	font-family: $prm-fonts;
 	overflow: scroll!important;
 }
+
+.beige-status{
+	background: rgba(255, 241, 168, 1);
+}
+
+.yellow-status{
+	background: rgba(235, 255, 112, 1);
+}
+
+.green-status{
+	background: rgba(112, 255, 169, 1);
+}
+
+.red-status{
+	background: rgba(255, 108, 108, 1);
+}

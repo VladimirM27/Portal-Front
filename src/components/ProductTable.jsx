@@ -1,8 +1,7 @@
 import React from 'react';
 import IngredientInfo from "./IngredientInfo";
 
-const ProductTable = () => {
-    const trArr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+const ProductTable = ({products}) => {
     return (
         <div className='products-table'>
             <div className='storage-table-header'>
@@ -12,15 +11,15 @@ const ProductTable = () => {
                 <span>Cost for 1</span>
                 <span>Cost</span>
             </div>
-            {trArr.map((trItem,index) =>
+            {products !== undefined && products.map((product,index) =>
                 <div
                     className='ingredient-info'
                 >
-                    <span className='product-name'>Milk</span>
-                    <span className='product-capacity'>1 l</span>
-                    <span className='product-amount'>3</span>
-                    <span className='product-cost1'>20</span>
-                    <span className='product-cost'>60</span>
+                    <span className='product-name'>{product.product.name}</span>
+                    <span className='product-capacity'>{product.product.capacity}</span>
+                    <span className='product-amount'>{product.amount}</span>
+                    <span className='product-cost1'>{product.product.price}</span>
+                    <span className='product-cost'>{product.product.price * product.amount}</span>
                 </div>
             )}
         </div>
