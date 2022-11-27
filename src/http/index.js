@@ -1,5 +1,5 @@
 export const API_BASE_URL = 'https://portalfood.azurewebsites.net';
-export const ACCESS_TOKEN = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjY5NDgwNTQ3LCJleHAiOjE2NzAzNDQ1NDd9.i0lDlqlWCk1U7SR4j684QNR7805cQ2jpvLFlDeLCxLav2hySavtHeifBr-i4fAd4T7OtuW9bYsySIfbyFfwcmg';
+export const ACCESS_TOKEN = 'accessToken';
 
 const request = (options) => {
     const headers = new Headers({
@@ -7,8 +7,8 @@ const request = (options) => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": "true"
     })
-    if(localStorage.getItem("ACCESS_TOKEN")) {
-        headers.append('Authorization', 'Bearer ' + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjY5NDgwNTQ3LCJleHAiOjE2NzAzNDQ1NDd9.i0lDlqlWCk1U7SR4j684QNR7805cQ2jpvLFlDeLCxLav2hySavtHeifBr-i4fAd4T7OtuW9bYsySIfbyFfwcmg")
+    if(localStorage.getItem(ACCESS_TOKEN)) {
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN));
     }
     const defaults = {headers: headers};
     options = Object.assign({}, defaults, options);
@@ -50,7 +50,7 @@ export function signup(signupRequest) {
 }
 
 export function orders() {
-    if(!localStorage.getItem("ACCESS_TOKEN")) {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }
     return request({

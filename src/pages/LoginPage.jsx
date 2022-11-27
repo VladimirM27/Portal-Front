@@ -13,10 +13,10 @@ const LoginPage = ({authenticated,isAuthorizetion}) => {
         login(loginRequest)
         .then(response => {
             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+            isAuthorizetion();
         }).catch(error => {
             alert((error && error.message) || 'Oops! Something went wrong. Please try again!');
-        });
-        isAuthorizetion();
+        })
         setUserLoginState({email:'',password:''});
     }
     return (
