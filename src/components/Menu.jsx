@@ -1,10 +1,12 @@
 import React from 'react';
 import {Link,Navigate} from "react-router-dom";
+import {ACCESS_TOKEN} from '../http'
 
 const Menu = ({isAuthorizetion, tf, indexActive}) => {
     const exit =(e) => {
-        e.preventDefault();
+        localStorage.removeItem(ACCESS_TOKEN);
         isAuthorizetion();
+        alert("You're safely logged out!");
         return <Navigate to="/login"/> 
     }
     return (
@@ -40,10 +42,11 @@ const Menu = ({isAuthorizetion, tf, indexActive}) => {
                     <path d="M16.0312 28.5C20.95 28.5 24.9375 24.5125 24.9375 19.5938C24.9375 14.675 20.95 10.6875 16.0312 10.6875C11.1125 10.6875 7.125 14.675 7.125 19.5938C7.125 24.5125 11.1125 28.5 16.0312 28.5Z" fill="black"/>
                 </svg>
                 <span className='item-list_text'>
-                        <a href='/src/pages/StoragePage'
-                           onClick={tf}
-                           className='item-list_link'>Profiles</a>
-                    </span>
+                <Link to={'/profiles'}
+                    state={{isAuthorizetion: isAuthorizetion}}
+                    className='item-list_link'>Profiles
+                </Link>
+                </span>
             </li>
             <li className={indexActive === 3 ? 'item-list selected' : 'item-list'}>
                 <svg className='item-list_icon' width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">

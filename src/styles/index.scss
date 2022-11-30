@@ -573,3 +573,45 @@
 .red-status{
 	background: rgba(255, 108, 108, 1);
 }
+
+/*PROFILES PAGE*/
+.profiles-add-modal {
+	width: 840px;
+	height: 450px;
+}
+.profiles-form {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.profiles-form-input {
+	width: 600px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: space-between;
+}
+.profiles-info_name {
+	width: 270px;
+}
+.profiles-info_last-name {
+	width: 270px;
+}
+.profiles-info_email {
+	width: 228px;
+}
+.profiles-info_role {
+	width: 220px;
+}
+.profiles-info_additional {
+	width: 278px;
+}
+.profiles-info_status {
+	box-sizing: border-box;
+	width: 235px;
+	display: flex;
+	justify-content: center;
+	border: 1px solid #B9B9B9;
+}

@@ -6,6 +6,7 @@ import {ACCESS_TOKEN} from './http'
 import LoginPage from "./pages/LoginPage";
 import StorePage from './pages/StorePage'
 import OrdersPage from './pages/OrdersPage'
+import ProfilesPage from './pages/ProfilesPage'
 function App() {
   const [userState,setUserState] = useState({
     authenticated: false,
@@ -27,12 +28,6 @@ function App() {
       setUserState({...userState,loading:false})
     })
   }
-  const handleLogout = () => {
-    localStorage.removeItem(ACCESS_TOKEN);
-    setUserState({userState,authenticated: false,
-      currentUser: null});
-    alert("You're safely logged out!");
-  }
   const isAuthorizetion =() => {
     setUserState({...userState,authenticated:!userState.authenticated});
   }
@@ -42,7 +37,8 @@ function App() {
         <Route index path='/login' element={<LoginPage authenticated={userState.authenticated} isAuthorizetion={isAuthorizetion}/>}></Route>
 
         <Route path='/store' element={<StorePage authenticated={userState.authenticated} isAuthorizetion={isAuthorizetion}/>}/>
-        <Route path="/orders" element={<OrdersPage/>}/>
+        <Route path="/orders" element={<OrdersPage isAuthorizetion={isAuthorizetion}/>}/>
+        <Route path="/profiles" element={<ProfilesPage/>}/>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
