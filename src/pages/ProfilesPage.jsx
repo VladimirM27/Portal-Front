@@ -5,12 +5,18 @@ import AddModalVIew from '../components/AddModalVIew'
 import AddSupleModalView from '../components/AddSupleModalView'
 import IngredientTable from '../components/IngredientTable'
 import AddProfilesModelView from '../components/AddProfilesModelView';
+import ModalEditProfile from "../components/ModalEditProfile";
 
 const ProfilesPage = ({isAuthorizetion}) => {
     const [modalActive,setModalActive] = useState(false);
     const tf =(e) => {
 	  e.preventDefault();
 	}
+
+	const [modalEditActive,setModalEditActive] = useState(false);
+
+
+
   return (
     <div className='outer-wrapper main'>
 		<Menu isAuthorizetion={isAuthorizetion} tf={tf} indexActive={2}/>
@@ -44,7 +50,7 @@ const ProfilesPage = ({isAuthorizetion}) => {
 					<span className='storage-btn_title'>Delete</span>
 				</button>
 			</div>
-			<ProfilesTable/>
+			<ProfilesTable active={modalEditActive} setActive={setModalEditActive}/>
 		</div>
     </div>
   )
