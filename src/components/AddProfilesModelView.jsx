@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {ACCESS_TOKEN, addUser, login} from "../http";
 const AddProfilesModelView = ({active,setActive}) => {
     const changeActive =(e) => {
         e.preventDefault();
@@ -9,6 +10,15 @@ const AddProfilesModelView = ({active,setActive}) => {
         alert('Item add');
         setActive(false);
     }
+
+    const [user, setUser] = useState({name:"", email:"", password: ""})
+    const addManager = async (e) => {
+        await addUser({name : user.name, email : user.email, password: user.password});
+        setActive(false)
+        // window.location.reload()
+    }
+
+
     return (
         <div className={`modal ${active ? 'active' : ''}`}
         onClick={changeActive}>
@@ -18,30 +28,22 @@ const AddProfilesModelView = ({active,setActive}) => {
                 <div className="form-input profiles-form-input">
                     <div className="form-input-name input-add">
                         <span className="form-input_title">First Name</span>
-                        <input type='text'/>
+                        <input type='text' value={user.name}  onChange={(e) => setUser({...user, name: e.target.value})}/>
                     </div>
-                    <div className="form-input-type input-add">
-                        <span className="form-input_title input-add">Last Name</span>
-                        <input type='text'/>
-                    </div>
+
                     <div className="form-input-vendor input-add">
                         <span className="form-input_title">Email</span>
-                        <input type='text'/>
+                        <input type='text' value={user.email}  onChange={(e) => setUser({...user, email: e.target.value})}/>
                     </div>
-                    <div className="form-input-vendor input-add">
-                        <span className="form-input_title input-add">Role</span>
-                        <select className="form-input_type">
-                            <option></option>
-                        </select>
-                    </div>
+
                     <div className="form-input-vendor input-add">
                         <span className="form-input_title">Password</span>
-                        <input type='text'/>
+                        <input type='text' value={user.password} onChange={(e) => setUser({...user, password: e.target.value})}/>
                     </div>
                 </div>
                 <div className='form-note-btn'>
                     <button onClick={changeActive}>Cancel</button>
-                    <button onClick={addItem}>Add</button>
+                    <button onClick={addManager}>Add</button>
                 </div>
             </form>
         </div>

@@ -68,3 +68,11 @@ export function users() {
         method: 'GET',
     });
 }
+
+export function addUser(addRequest) {
+    return request({
+        url: API_BASE_URL + "/auth/signup/manager",
+        method: 'POST',
+        body: JSON.stringify(addRequest)
+    });
+}

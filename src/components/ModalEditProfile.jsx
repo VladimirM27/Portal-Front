@@ -23,10 +23,7 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
                             <span className="form-input_title">First Name</span>
                             <input className='input-add_wide'  type='text' value={user.firstName}/>
                         </div>
-                        <div className="form-input-capacity input-add">
-                            <span className="form-input_title">Last Name</span>
-                            <input className='input-add_wide' type='text' value={user.lastName}/>
-                        </div>
+
                         <div className="form-input-capacity input-add">
                             <span className="form-input_title">Email</span>
                             <input className='input-add_wide' type='text' value={user.email}/>

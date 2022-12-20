@@ -8,19 +8,21 @@ import AddProfilesModelView from '../components/AddProfilesModelView';
 
 const ProfilesPage = ({isAuthorizetion}) => {
     const [modalActive,setModalActive] = useState(false);
-    const tf =(e) => {
+	const [modalAddActive,setModalAddActive] = useState(false);
+
+	const tf =(e) => {
 	  e.preventDefault();
 	}
   return (
     <div className='outer-wrapper main'>
 		<Menu isAuthorizetion={isAuthorizetion} tf={tf} indexActive={2}/>
-        <AddProfilesModelView active={modalActive} setActive={setModalActive}/>
+        <AddProfilesModelView active={modalAddActive} setActive={setModalAddActive}/>
         <div className='storage'>
 			<h2 className="storage-title">Profiles</h2>
             <div className="storage-mod">
 				<button
 					className='storage-btn add_btn'
-					onClick={() => setModalActive(true)}
+					onClick={() => setModalAddActive(true)}
 				>
 					<svg className='storage-mod_icon' width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M9.12152 0.0714264C9.74046 0.0714264 10.2422 0.487162 10.2422 0.999998V6.57143H16.9663C17.5853 6.57143 18.087 6.98716 18.087 7.5C18.087 8.01283 17.5853 8.42857 16.9663 8.42857H10.2422V14C10.2422 14.5128 9.74046 14.9286 9.12152 14.9286C8.50258 14.9286 8.00083 14.5128 8.00083 14V8.42857H1.2767C0.657756 8.42857 0.156006 8.01283 0.156006 7.5C0.156006 6.98716 0.657756 6.57143 1.2767 6.57143H8.00083V0.999998C8.00083 0.487162 8.50258 0.0714264 9.12152 0.0714264Z" fill="black"/>
