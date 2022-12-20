@@ -4,7 +4,7 @@ const ProfilesTableInfo = ({active, setActive, user, setUser}) => {
     return (
         <div className='ingredient-info' onClick={() => {
             console.log(user)
-            setUser({...user, firstName: user.name==null ? "" : user.name, addit: user.addit==null ? "" : user.addit, email: user.email==null ? "" : user.email})
+            setUser({...user, firstName: user.name==null ? "" : user.name, addit: user.addit==null ? "" : user.addit, email: user.email==null ? "" : user.email,})
             setActive(true)
             console.log(user)
         }}>
