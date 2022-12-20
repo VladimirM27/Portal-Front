@@ -76,3 +76,14 @@ export function addUser(addRequest) {
         body: JSON.stringify(addRequest)
     });
 }
+
+export function putUser(signupRequest, id) {
+    console.log("Here")
+    console.log(signupRequest)
+    console.log(id)
+    return request({
+        url: API_BASE_URL + `/users/${id}`,
+        method: 'PUT',
+        body: JSON.stringify(signupRequest)
+    });
+}

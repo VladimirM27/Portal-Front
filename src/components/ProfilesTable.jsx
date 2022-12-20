@@ -11,7 +11,8 @@ const ProfilesTable = ({active,setActive}) => {
 		email: "",
 		role: "",
 		addit:"",
-		status: ""
+		status: "",
+		id: -1
 	})
 
 	const [usersList, setUsersList] = useState([])
@@ -21,7 +22,7 @@ const ProfilesTable = ({active,setActive}) => {
 		const getUsers = async () => {
 			const userList = await users();
 			for (let i =0; i < userList.length; i++) {
-				userList[i] = {...userList[i], firstName: userList[i].name, email: userList[i].email, role: userList[i].authority, addit: userList[i].note }
+				userList[i] = {...userList[i], firstName: userList[i].name, email: userList[i].email, role: userList[i].authority, addit: userList[i].note, id: userList[i].id }
 			}
 			setUsersList(userList)
 		}

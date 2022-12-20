@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import IngredientInfo from "./IngredientInfo";
 import ProductTable from "./ProductTable";
+import {putUser} from "../http";
 
 const ModalEditProfile = ({active, setActive, user, setUser}) => {
     const changeActive =(e) => {
@@ -13,6 +14,13 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
         setActive(false);
     }
 
+
+    const changeUser = async (e) => {
+        e.preventDefault()
+        const res = await putUser({name: user.firstName, email: user.email, authority: user.role === 'ROLE_MANAGER' ? 'MANAGER': user.role === 'USER' ? 'USER' : 'ADMIN', note: user.addit}, user.id)
+        console.log(res)
+        window.location.reload()
+    }
 
     return (
         <div className={`modal ${active ? 'active' : ''}`} onClick={changeActive}>
@@ -30,7 +38,10 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
                         </div>
                         <div className="form-input-capacity input-add">
                             <span className="form-input_title">Role</span>
-                            <select className="form-input_type">
+                            <select className="form-input_type" onChange={(e) => {
+                                setUser({...user, role: e.target.value === 'admin' ? 'ROLE_ADMIN' : e.target.value === 'user'? 'ROLE_USER' : 'ROLE_MANAGER'})
+                                console.log(e.target.value)
+                            }}>
                                 <option selected={user.role==='ROLE_MANAGER' ? true : false}>manager</option>
                                 <option selected={user.role==='ROLE_USER' ? true : false}>user</option>
                                 <option selected={user.role==='ROLE_ADMIN' ? true : false}>admin</option>
@@ -43,7 +54,7 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
                     </div>
                     <div style={{marginTop: "40px"}} className='form-note-btn'>
                         <button style={{cursor:"pointer"}} onClick={changeActive}>Cancel</button>
-                        <button style={{cursor:"pointer"}} onClick={addItem}>Save</button>
+                        <button style={{cursor:"pointer"}} onClick={changeUser}>Save</button>
                     </div>
                 </form>
             </div>
