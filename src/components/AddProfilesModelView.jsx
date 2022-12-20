@@ -13,9 +13,14 @@ const AddProfilesModelView = ({active,setActive}) => {
 
     const [user, setUser] = useState({name:"", email:"", password: ""})
     const addManager = async (e) => {
-        await addUser({name : user.name, email : user.email, password: user.password});
-        setActive(false)
-        // window.location.reload()
+        e.preventDefault()
+        try {
+            const response = await addUser({name : user.name, email : user.email, password: user.password});
+            window.location.reload()
+        }
+        catch (e){
+            alert("Please, enter valid data")
+        }
     }
 
 

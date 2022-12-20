@@ -18,14 +18,13 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
     const changeUser = async (e) => {
         e.preventDefault()
         const res = await putUser({name: user.firstName, email: user.email, authority: user.role === 'ROLE_MANAGER' ? 'MANAGER': user.role === 'USER' ? 'USER' : 'ADMIN', note: user.addit}, user.id)
-        console.log(res)
         window.location.reload()
     }
 
     return (
         <div className={`modal ${active ? 'active' : ''}`} onClick={changeActive}>
             <div className={`modal-content ${active ? 'active' : ''} order-modal-order`} onClick={e => e.stopPropagation()}>
-                <form className='order-form'>
+                <form className='order-form' onSubmit={(e) => changeUser(e)}>
                     <div className="form-input">
                         <div className="form-input-vendor input-add">
                             <span className="form-input_title">First Name</span>
@@ -54,7 +53,7 @@ const ModalEditProfile = ({active, setActive, user, setUser}) => {
                     </div>
                     <div style={{marginTop: "40px"}} className='form-note-btn'>
                         <button style={{cursor:"pointer"}} onClick={changeActive}>Cancel</button>
-                        <button style={{cursor:"pointer"}} onClick={changeUser}>Save</button>
+                        <button style={{cursor:"pointer"}} type='submit'>Save</button>
                     </div>
                 </form>
             </div>
