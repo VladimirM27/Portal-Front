@@ -58,3 +58,13 @@ export function orders() {
         method: 'GET',
     });
 }
+
+export function users() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+    return request({
+        url: API_BASE_URL + "/users",
+        method: 'GET',
+    });
+}

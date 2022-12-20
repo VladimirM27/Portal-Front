@@ -44,7 +44,7 @@ const ProfilesPage = ({isAuthorizetion}) => {
 					<span className='storage-btn_title'>Delete</span>
 				</button>
 			</div>
-			<ProfilesTable/>
+			<ProfilesTable setActive={setModalActive} active={modalActive}/>
 		</div>
     </div>
   )

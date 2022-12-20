@@ -594,19 +594,20 @@
 	align-items: space-between;
 }
 .profiles-info_name {
-	width: 270px;
+	width: 368px;
+	min-height: 50px;
 }
 .profiles-info_last-name {
-	width: 270px;
+	width: 400px;
 }
 .profiles-info_email {
-	width: 228px;
+	width: 364px;
 }
 .profiles-info_role {
-	width: 220px;
+	width: 354px;
 }
 .profiles-info_additional {
-	width: 278px;
+	width: 412px;
 }
 .profiles-info_status {
 	box-sizing: border-box;
